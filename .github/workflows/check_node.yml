@@ -2,7 +2,7 @@ name: Check node project
 on: [pull_request]
 jobs:
   check_uts:
-    runs-on: ubutu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
