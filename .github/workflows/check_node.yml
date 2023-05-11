@@ -1,0 +1,16 @@
+name: Check node project
+on: [pull_request]
+jobs:
+  check_uts:
+    runs-on: ubutu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: install dependencies
+        run: npm install
+      - name: run tests
+        run: npm run test
