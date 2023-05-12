@@ -1,6 +1,6 @@
 name: Publish statics
 on:
-  merge:
+  push:
     branches: [main]
 
 jobs:
