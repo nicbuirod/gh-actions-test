@@ -1,6 +1,7 @@
 name: Check node project
 on: [pull_request]
 jobs:
+  #Run unit test
   check_uts:
     runs-on: ubuntu-latest
     steps:
@@ -16,3 +17,14 @@ jobs:
         run: npm install
       - name: run tests
         run: npm run test
+  #Lint
+  eslint:
+    runs-on: ubuntu-latest
+    needs: [check_uts]
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: install dependencies
+        run: npm install
+      - name: run lint
+        run: npm run lint

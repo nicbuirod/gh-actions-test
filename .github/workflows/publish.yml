@@ -1,0 +1,18 @@
+name: Publish statics
+on:
+  push:
+    branches: [main]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Deploy to foo-bar.surge.sh
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: "left-border.surge.sh"
+          project: "statics"
+          login: ${{ secrets.surge_login }}
+          token: ${{ secrets.surge_token }}
